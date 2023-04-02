@@ -4,6 +4,7 @@ function pages() {
   return (
     <div>
       <Home/>
+      
     </div>
   )
 }

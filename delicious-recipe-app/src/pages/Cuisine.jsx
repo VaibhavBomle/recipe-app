@@ -18,12 +18,19 @@ function Cuisine() {
     console.log("params :",params.type);
   },[params.type]);
   return (
-    <Grid>
+    <Grid
+     animate={{opacity: 1}}
+     initial={{opacity: 0}}
+     exist={{opacity: 0}}
+     transition={{duration: 2}}
+    >
       {cuisine.map((item) =>{
          return (
           <Card key={item.id}>
+            <Link to={'/recipe/'+item.id}>
               <img src={item.image} alt=""/>
               <h4>{item.title}</h4>
+            </Link>
           </Card>
          )
       })}
@@ -31,9 +38,10 @@ function Cuisine() {
   )
 }
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      grid-gap: 3rem;
 `;
 
 const Card = styled.div`

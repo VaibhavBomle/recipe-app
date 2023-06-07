@@ -25,15 +25,23 @@ function Recipe() {
         <img src={details.image} alt=""></img>
       </div>
       <div>
-      <info>
+      <Info>
         <Button className = {activeTab === "instructions" ? "active" : ""} onClick={()=> setActiveTab('instructions')}>Instructions</Button>
         <Button className = {activeTab === "instructions" ? "active" : ""} onClick={()=> setActiveTab('ingredients')}>Ingredients</Button>
-        <div>
-            <h3 dangerouslySetInnerHTML = {{__html: details.summary}}></h3>
-            <h3 dangerouslySetInnerHTML = {{__html: details.instructions    }}></h3>
-
-        </div>
-      </info>
+        {activeTab === "instructions" && (
+          <div>
+           <h3 dangerouslySetInnerHTML = {{__html: details.summary}}></h3>
+           <h3 dangerouslySetInnerHTML = {{__html: details.instructions    }}></h3>
+         </div>
+        )}
+        
+        {activeTab === "ingredients" && (
+        <ul>
+            {details.extendedIngredients && details.extendedIngredients.map((ingredient)=>(
+               <li key = {ingredient.id}>{ingredient.original}</li>
+            ))}
+        </ul>)}
+      </Info>
       </div>
   </DetailWrapper>
 }

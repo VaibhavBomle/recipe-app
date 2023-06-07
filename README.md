@@ -2,7 +2,6 @@
 
 To fetch Food API details.
 https://spoonacular.com/food-api/console#Profile
-API Key : 04f20e1cd9df4c29b6ca4956ca539d79
 
  1: 0 to 20 min:
  created Base of react recipe Project
